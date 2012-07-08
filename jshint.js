@@ -1094,6 +1094,7 @@ var JSHINT = (function () {
                 warningAt("Mixed spaces and tabs.", line, at + 1);
 
             s = s.replace(/\t/g, tab);
+			snc = snc.replace(/\t/g, tab);
             at = s.search(cx);
 
             if (at >= 0)
@@ -1103,8 +1104,8 @@ var JSHINT = (function () {
                 warningAt("Line too long.", line, s.length);
 
             // Check for trailing whitespaces
-            tw = option.trailing && s.match(/^(.*?)\s+$/);
-            if (tw && !/^\s+$/.test(s)) {
+            tw = option.trailing && snc.match(/^(.*?)\s+$/);
+            if (tw && !/^\s+$/.test(snc)) {
                 warningAt("Trailing whitespace.", line, tw[1].length + 1);
             }
             return true;
